@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+			<title>Chris's Journey</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="{% static 'Chris_Blog/css/chris.css' %}" content= "width=device-width, initial-scale=1.0" media="screen">
+	</head>
+	<body>
+		<div id="container">
+
+			<div id="quote">
+				<p><em><i>“Don’t lose hope. When the sun goes down, the stars come out.”</i>     ~Unknown</em></p>
+			</div>
+
+			<div id="header_pics">
+				<img src="{% static 'Chris_Blog/images/logo.JPG' %}" />
+				<img src="{% static 'Chris_Blog/images/chris_comfy.JPG' %}" />
+			</div>
+
+			<div id="headline">
+				<h1>Chris's Journey To Beating Cancer</h1>
+			</div>
+
+			<div id="info">
+				<h4>~ Useful Information ~</h4>
+				<ul>
+					<li style="	font-size: 25px;
+						text-decoration: underline;"><b>What is Multiple Myeloma?</b></li>
+						<ul style="list-style-type: circle;">
+							<li>Multiple myeloma is a hematological (blood) cancer that develops in the plasma cells found in the soft, spongy tissue at the center of your bones, called bone marrow. </li>
+							<li>Myeloma causes structural bone damage, which can result in weakened bones and leads to painful fractures or bone breaks over time. Myeloma is usually called multiple myeloma due to the fact that most people, more than 90%, have multiple bone lesions when diagnosed or lesions develop over the course of the illness.</li>
+							<li>Myeloma is characterized by low blood count, making it very difficult to fight off infections</li>
+						</ul>
+					<li style="	font-size: 25px;
+						text-decoration: underline;"><b>What are the Treatments?</b></li>
+						<ul style="list-style-type: circle;">
+							<li>IMPORTANCE OF GENOMICS - Through genomic studies (studies of the tumor cell DNA), we have learned that there are many DNA alterations in myeloma cells, which differ from patient to patient. The ultimate goal of genomic research is to develop personalized treatments based on the DNA in the myeloma cells of individual patients. <em>These frequently differ from patient to patient.</em></li>
+							<li><u>STANDARD TREATMEANT OPTIONS:</u></li>
+								<ul style="list-style-type: disc;">
+									<li><b>Targeted Therapy:</b> Targeted drug treatment focuses on specific abnormalities within cancer cells that allow them to survive. Bortezomib (Velcade) and carfilzomib (Kyprolis) are targeted drugs that block the action of a substance in myeloma cells that breaks down proteins. This action causes myeloma cells to die. Both medications are administered through a vein in your arm.</li>
+									<li><b>Biological Therapy:</b> Biological therapy drugs use your body's immune system to fight myeloma cells. The drugs thalidomide (Thalomid), lenalidomide (Revlimid) and pomalidomide (Pomalyst) enhance the immune system cells that identify and attack cancer cells. These medications are taken in pill form.</li>
+									<li><b>Chemotherapy:</b> Chemotherapy drugs kill fast-growing cells, including myeloma cells. Chemotherapy drugs can be given through a vein in your arm or taken in pill form. High doses of chemotherapy drugs are used before a stem cell transplant.</li>
+									<li><b>Corticosteroids:</b> Corticosteroids, such as prednisone and dexamethasone, regulate the immune system to control inflammation in the body. They also are active against myeloma cells. Corticosteroids can be taken in pill form or administered through a vein in your arm.</li>
+									<li><b>Stem Cell Transplantation:</b> A stem cell transplant is a procedure to replace your diseased bone marrow with healthy bone marrow.  For more information about donor eligibility guidelines, contact <b style="font-size: 20px;">Be the Match</b>:
+										<ul style="list-style-type: none; padding: 5px 0px 0px 7px;">
+											<li><b>Be the Match</b> (formerly the <b>National Marrow Donor Program</b>)  Toll-free number: 1-800-MARROW-2 (1-800-627-7692)  Website: <a href="https://bethematch.org/">www.bethematch.org</a></li>
+										</ul>
+									<li><b>Radiation Therapy:</b> This treatment uses beams of energy, such as X-rays, to damage myeloma cells and stop their growth. Radiation therapy may be used to quickly shrink myeloma cells in a specific area — for instance, when a collection of abnormal plasma cells form a tumor (plasmacytoma) that's causing pain or destroying a bone.</li>
+								</ul>
+				</ul>
+					<div id="links">
+						<br><br><p><b>For more information on Multiple Myeloma, please click on the following links: </b></p>
+						<ul style="list-style-type:disc">
+							<li><a href="http://www.cancer.org/cancer/multiple-myeloma/about/what-is-multiple-myeloma.html">American Cancer Society</a></li>
+							<li><a href="https://www.themmrf.org/multiple-myeloma/what-is-multiple-myeloma/">The Multiple Myeloma Research Foundation</a></li>
+							<li><a href="http://www.cancer.net/cancer-types/multiple-myeloma/introduction">Cancer.Net</a></li>
+							<li><a href="http://www.myelomabeacon.com/news/2012/10/19/donor-allogeneic-stem-cell-transplants-in-multiple-myeloma-upfront-vs-at-relapse/">The Myeloma Beacon: Donor Cell Transplants</a></li>
+						</ul>
+					</div>
+				</div>
+			<div id="blog">
+				<form action="{% url 'blogs' %}" method='post' id='postBlog'>
+				{% csrf_token%}
+					<label for="title"><b>Post Title:</label></b>
+					<input type="text" name="title" ><br>
+		         <label><b>My Thoughts:</b>
+					<textarea rows="12" cols="88" name="blog"></textarea></label>
+					<label><b>Author:</b>
+					<select name="author" class="select"><br>
+						<option value="Chris S.">Chris Swarthout</option></select></label>
+					<div id='submit_button'>
+							<br><input type='submit' value='Post My Thoughts'>
+					</div>
+		    </form>
+			</div>
+
+			<div id="commentBoxes">
+				<div id="comments">
+					<form id="postComment" action="{% url 'comments' %}" method='post' >
+					{% csrf_token%}
+						<label for="make_comment"><b>Make Your Comment To Chris:</b></label>
+					  <textarea rows="12" cols="66" name="comment"></textarea><br>
+					  <label for="name"><b>Please Add Your Name:</b><input type='text' name='name'></label><br>
+			        <input type="submit" value="Post Your Comment">
+			     	</form>
+			  	</div>
+				<div id="makeComment">
+					<h2>~  Comments For Chris!!  ~</h2>
+						<ul style="list-style-type: square;">
+							{% for comment in comments  %}
+								<div id="newComments">
+									<li><b>From:</b> <em>{{comment.name}}</em> </li>
+									<li><b>Date:</b>  <em>{{comment.created_at}}</em></li>
+										<ul style="list-style-type: none;">
+											<li style="color: #000000;">{{comment.comment}}</li><hr>
+										</ul>
+								</div>
+							{% endfor %}
+						</ul>
+				</div>
+
+				<div id="posts">
+					<h2>~ Posted By Chris Swarthout ~</h2>
+					{% if blogs %}
+						<ul style="list-style-type: circle;">
+							{% for blog in blogs %}
+								<div id="blogPosts">
+									<li><b> {{blog.title}}:</b></li>
+										<ul style="list-style-type: none;">
+											<li style="color: #800000;">{{blog.blog}}</li>
+											<li style="color: #13070d;"> Posted by: <b>{{blog.author}}</b> Date: <b>{{blog.created_at}}</b></li><hr>
+										</ul>
+								</div>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
