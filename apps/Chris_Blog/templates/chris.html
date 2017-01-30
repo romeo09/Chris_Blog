@@ -65,7 +65,7 @@
 					<label for="title"><b>Post Title:</label></b>
 					<input type="text" name="title" ><br>
 		         <label><b>My Thoughts:</b>
-					<textarea rows="12" cols="88" name="blog"></textarea></label>
+					<textarea rows="12" cols="88" name="blog" placeholder="THIS AREA IS FOR CHRIS ONLY!!  **(you can make comments to Chris below)**"></textarea></label>
 					<label><b>Author:</b>
 					<select name="author" class="select"><br>
 						<option value="Chris S.">Chris Swarthout</option></select></label>
@@ -80,7 +80,7 @@
 					<form id="postComment" action="{% url 'comments' %}" method='post' >
 					{% csrf_token%}
 						<label for="make_comment"><b>Make Your Comment To Chris:</b></label>
-					  <textarea rows="12" cols="66" name="comment"></textarea><br>
+					  <textarea rows="12" cols="66" name="comment" placeholder="MAKE YOUR COMMENTS FOR CHRIS HERE!!!"></textarea><br>
 					  <label for="name"><b>Please Add Your Name:</b><input type='text' name='name'></label><br>
 			        <input type="submit" value="Post Your Comment">
 			     	</form>
@@ -101,7 +101,7 @@
 				</div>
 
 				<div id="posts">
-					<h2>~ Posted By Chris Swarthout ~</h2>
+					<h1>~ Posted By Chris Swarthout ~</h1>
 					{% if blogs %}
 						<ul style="list-style-type: circle;">
 							{% for blog in blogs %}
